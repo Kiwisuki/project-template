@@ -6,22 +6,10 @@ build-backend = 'poetry.core.masonry.api'
 name = 'template_env'
 version = '1.6.1'
 description = 'Python dependency management and packaging made easy.'
-authors = ['ds_team']
+authors = ['Marius Arlauskas']
 
 [tool.poetry.dependencies]
 python = '~3.9'
-
-[tool.poetry.group.dev.dependencies]
-google-auth = "^2.25.2"
-google-api-python-client = "^2.110.0"
-google-auth-oauthlib = "^1.1.0"
-google-cloud-bigquery-storage = "^2.23.0"
-google-cloud-storage = "^2.13.0"
-google-cloud-bigquery = "^3.14.0"
-tqdm = "^4.66.1"
-pyarrow = "^14.0.1"
-openpyxl = "^3.1.2"
-pandas = "^2.1.4"
 
 [tool.poetry.group.linting.dependencies]
 ruff = '^0.0.285'

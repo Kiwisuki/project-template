@@ -1,0 +1,36 @@
+image: python:3.9
+
+before_script:
+  - pip install poetry
+  - poetry install --only linting,testing,dev
+  - source `poetry env info --path`/bin/activate
+
+stages:
+  - Linting
+  - Type Checking
+  - Docstring Coverage
+  - Unit Testing
+
+Linting:
+  stage: Linting
+  script:
+    - isort . -- check-only
+    - black .
+    - ruff .
+  only:
+    - merge_requests
+
+Type Checking:
+  stage: Type Checking
+  script:
+    - mypy src
+  only:
+    - merge_requests
+
+Unit Testing:
+  stage: Unit Testing
+  script:
+    - coverage run -m pytest
+    - coverage report -m
+  only:
+    - merge_requests
